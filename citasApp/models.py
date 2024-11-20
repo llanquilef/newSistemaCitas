@@ -24,7 +24,7 @@ class Cliente(Usuario):
     telefono = models.CharField(max_length=15)
 
     def __str__(self):
-        return self.nombre
+        return f"{self.nombre}"
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=50)
@@ -33,7 +33,7 @@ class Servicio(models.Model):
     duracion = models.PositiveIntegerField()
     
     def __str__(self):
-        return self.nombre
+        return f"{self.nombre}"
 
 class Cita(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
@@ -47,11 +47,11 @@ class Cita(models.Model):
         ('Completada', 'Completada'),
         ])
     def __str__(self):
-        return self.estado
-
+        return f"Estado Reserva: {self.estado} - Fecha y Hora: {self.fecha}, {self.hora} - Estilista: {self.estilista} - Servicio: {self.servicio}"
+    
 class Horario(models.Model):
     dia_semana = models.CharField(max_length=20)
     horas_disponibles = models.JSONField()
 
-    def __str__(self):
+    def __str__(self): 
         return self.dia_semana

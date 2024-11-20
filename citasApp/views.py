@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from citasApp import forms
-from .models import Cita, Estilista
+from .models import Cita, Estilista, Servicio
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 
 # Index
 def Index(request):
     return render(request, 'index.html')
-# Listado de Citas 
 
-def listar_cita(request):
+# Listado de Citas 
+def listadoCita(request):
     citas = Cita.objects.all()
     return render(request, 'listadoCitas.html', {'citas': citas})
 
@@ -39,6 +39,13 @@ def crearEstilista(request):
     Estilista.objects.create(nombre="Jazmín Rosalba", especialidades = 'Corte de Pelo, Decoloración y Tintura')
     return render(request, 'estilistaCreado.html')
 
+
+# Listado Servicios
+def Servicios(request):
+    servicio = Servicio.objects.all()
+    return render(request, 'servicios.html', {'servicio': servicio})
+
+# Registro Usuario
 def UsuarioRegistro(request):
     formulario = forms.UsuarioFormulario()
     data = {

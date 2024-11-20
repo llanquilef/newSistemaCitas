@@ -37,52 +37,36 @@
     </div> 
   </div>
 </nav>
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        {% load static %}
-        <img src="{% static 'imgs/barber1.jpg' %}" alt="Image">
-        <div class="carousel-caption">
-          <h3>Sell $</h3>
-          <p>Money Money.</p>
-        </div>      
-      </div>
-      
-
-      <div class="item">
-        {% load static %}
-        <img src="{% static 'imgs/barber2.jpg' %}" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...</p>
-        </div>      
-      </div>
-
-      <div class="item">
-        {% load static %}
-        <img src="{% static 'imgs/barber3.jpg' %}" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...</p>
-        </div>      
-      </div>
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Anterior</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Siguiente</span>
-    </a>
-</div>
+<h1>Listado de Citas</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Estilista</th>
+            <th>Servicio</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in citas %}
+        <tr>
+            <br>
+            <td>{{ c.cliente }}</td>
+            <td>{{ c.estilista }}</td>
+            <td>{{ c.servicio }}</td>
+            <td>{{ c.fecha }}</td>
+            <td>{{ c.hora }}</td>
+            <td>{{ c.estado }}</td>
+            <td>
+                <a>Editar</a>
+                <a>Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 <footer class="container-fluid text-center">
   <p>Fints Barber Shop ©2024</p>
 </footer>
