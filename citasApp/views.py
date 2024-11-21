@@ -47,12 +47,16 @@ def Servicios(request):
 
 # Registro Usuario
 def UsuarioRegistro(request):
-    formulario = forms.UsuarioFormulario()
+    formulario = forms.usuarioFormulario()
     data = {
         'formulario': formulario
     }
-    return render(request, 'UsuarioFormulario.html', data)
+    return render(request, 'usuarioFormulario.html', data)
 
 # Reserva Hora
 def ReservaHora(request):
+    formulario_reserva = forms.usuarioFormulario()
+    data = {
+        ''
+    } 
     return render(request, 'reservaHora.html')
