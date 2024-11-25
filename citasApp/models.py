@@ -33,7 +33,7 @@ class Servicio(models.Model):
     duracion = models.PositiveIntegerField()
     
     def __str__(self):
-        return f"{self.nombre}"
+        return f"{self.nombre}  (${self.precio})"
 
 class Cita(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)

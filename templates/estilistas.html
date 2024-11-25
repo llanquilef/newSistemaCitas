@@ -20,7 +20,7 @@
         <div class="container">
             <div class="boxNav"><a href="{% url 'index' %}">Inicio</a></div>
             <div class="boxNav"><a href="{% url 'listadoCitas' %}">Citas</a></div>
-            <div class="boxNav"><a href="{% url 'listadoEstilistas' %}">Estilistas</a></div>
+            <div class="boxNav"><a href="#">Estilistas</a></div>
             <div class="boxNav"><a href="{% url 'servicios' %}">Servicios</a></div>
             <div class="boxNav">
               <a href="{% url 'reservaHora' %}">Reserva tu hora</a>
@@ -29,22 +29,20 @@
             </div>
         </div>
     </div>
-    <!--Contenedor Carrusel-->
-    <div class="containerCarrusel">
-        <div class="boxCarrusel">
-            <img src="{% static 'imgs/barberCarrusel(1).jpg'%}" alt="carruselIMG(1)"></a>
-            <img src="" alt="carruselIMG(2)"></a>
-            <img src="" alt="carruselIMG(3)"></a>
+    <!--Contenedor Listado Estilistas-->
+    <div class="containerListadoEstilistas">
+        <div class="boxTituloListadoEstilistas"><h1>Listado de Estilistas</h1></div>
+        <div class="boxContenedorTablaEstilistas">
+          <div class="boxEstilistasFilas">Nombre</div>
+          <div class="boxEstilistasFilas">Email</div>
+          <div class="boxEstilistasFilas">Rol</div>
+          {% for e in estilistas %}
+          <div class="data">{{ e.nombre }}</div>
+          <div class="data">{{ e.email }}</div>
+          <div class="data">{{ e.rol }}</div>
+          {% endfor %}
         </div>
-        <!--Botones Izquierda y Derecha-->
-        <button class="anterior">←</button>
-        <button class="siguiente">→</button>
-    </div>
-    <!-- Contenedor Servicios-->
-    <div class="containerServicios">
-        <div class="boxServicio"><img src="{% static 'imgs/cortePelo.jpg'%}" alt=""><strong>Corte de Pelo Premium</strong></div>
-        <div class="boxServicio"><img src="{% static 'imgs/barba.avif'%}" alt=""><strong>Recorte y Perfilado de Barba</strong></div>
-    </div>
+      </div>
     <!--Contenedor Footer-->
     <div class="containerFooter">
         <!--Título Footer-->

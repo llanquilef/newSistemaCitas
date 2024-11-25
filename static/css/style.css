@@ -1,57 +1,204 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body{
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.navbar {
-  height: 100px;
-  margin-bottom: 0;
-  border-radius: 10px;
-  max-width: 1200px;
-  margin: auto;
+* {
+  margin: 0;
   padding: 0;
-  background-color: rgb(255, 255, 255);
-  font-weight: 600;
+  box-sizing: border-box; 
+}
+body{
+  line-height: 1.5
+}
+.containerLogo{
+  position: relative;
+  padding: 10px;
+  display: flex;
+  width:150px;
+  height: 100px;
+}
+.boxLogoImagen{
+  position: absolute;
+  color: white;
+  width: 64px;
+  height: 64px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.container{
+  padding: 10px;
+  display: flex;
+  width: 1180px;
+  margin-left: 150px;
+  font-family: 'Cormorant Garamond', serif;
+
+}
+.boxNav {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+    border: 15px solid white;
+    font-size: 20px;
+    text-align: center;
+    margin: 30px;
+    width: 200px;
 }
 
-.navbar-inverse .navbar-brand{
-    color: brown;
-    margin-right: 40px;
-    margin: auto;
+.boxNav a{
+  color: black;
+  text-decoration: none;
 }
-.navbar-inverse .navbar-nav > li > a {
-color: rgb(4, 4, 4); /* Cambia el color del texto de los enlaces dentro del nav */
-margin-left: 100px;
-margin-top: 20px;
+.boxNav a:hover{
+  color: blanchedalmond;
 }
-
-.carousel-inner {
-  max-height: 400px;
+.containerCarrusel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 550px;
+  margin: 0 auto;
+  border: 1px solid rgb(255, 255, 255);
+  overflow: hidden; 
   margin-top: 40px;
-  border-radius: 10px;
-}    
+}
 
-.carousel-inner img {
+.boxCarrusel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: calc(1200px * 3);
+}
+
+.boxCarrusel img {
+  width: 1200px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.anterior, .siguiente {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.anterior {
+  left: 0px;
+}
+
+.siguiente {
+  right: 0px;
+}
+.containerListadoServicios{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.noPuntos{
+  list-style-type: none;
+}
+.boxListadoServicioTitulo{
+  margin-bottom: 20px;
+  font-size: xx-large;
+}
+.boxListadoServicio{
+  font-size: large;
+}
+.containerListadoCitas{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.boxTituloListadoCitas{
+  margin-bottom: 50px;
+}
+.boxContenedorTablaCitas{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px; 
+  margin-top: 20px;
+}
+
+.containerServicios{
+  display: flex;
   width: 100%;
-  margin: auto;
+  height: 550px;
+  gap: 80px;
+  margin: 0 auto;
+  border: 1px solid rgb(255, 255, 255);
 }
-
-@media (max-width: 600px) {
-.carousel-caption {
-  display: none; 
+.boxServicio{
+  width: 600px;
+  height: 300px;
+  margin-left: 50px;
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: large;
+  opacity: 95%;
 }
+.boxLugar img{
+  border-radius: 5px;
 }
-table{
+.containerFooter {
+  position: relative;
   width: 100%;
+  height: 600px;
+  background-color: black;
+  margin: 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  padding: 20px; 
+  box-sizing: border-box;
+  margin-top: 40px;
 }
 
-footer {
-  background-color: #f2f2f2;
-  padding: 25px;
-  margin-top: 70px;
+.containerTituloFooter {
+  position: absolute; 
+  top: 0;
+  right: 0; 
+  width: 40%;
+  height: 100px;
+  background-color: rgb(185, 178, 168);
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  font-family: 'Playfair Display', serif;
+  font-size: xx-large;
+  font-weight: 600;
+  color: rgb(241, 241, 241);
+}
+.containerInformacionContacto {
+  width: 25%;
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start;
+  gap: 10px; 
+  padding: 10px;
+  margin: 0;
+  margin-top: 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: large;
+  color: white;
+  text-decoration: none;
+}
+.boxContactoReserva{
+  text-decoration: underline;
+}
+.boxContactoReserva a{
+  color: white;
+  font-size: large;
+}
+.containerListadoEstilistas{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.boxTituloListadoEstilistas{
+  margin-bottom: 50px;
+}
+.boxContenedorTablaEstilistas{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px; 
+  margin-top: 20px;
 }

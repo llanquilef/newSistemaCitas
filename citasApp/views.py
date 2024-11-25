@@ -1,9 +1,6 @@
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from citasApp import forms
-from .models import Cita, Estilista, Servicio
-from django.views.generic import CreateView, UpdateView, DeleteView
-
+from django.shortcuts import render, redirect
+from .models import Cita, Servicio, Estilista
+from .forms import reservaHora, usuarioFormulario
 
 # Index
 def Index(request):
@@ -14,49 +11,27 @@ def listadoCita(request):
     citas = Cita.objects.all()
     return render(request, 'listadoCitas.html', {'citas': citas})
 
-# Crear Cita
-class CrearCita(CreateView):
-    model = Cita
-    fields = ['cliente', 'estilista', 'servicio', 'fecha', 'hora', 'estado']
-    template_name = 'citas/crearCitas.html'
-    success_url = reverse_lazy('index')
-
-# Eliminar Cita
-class EliminarCita(DeleteView):
-    model = Cita 
-    template_name = 'citas/eliminarCita.html'
-    success_url = reverse_lazy('listadoCitas')
-
-#Actualizar Cita
-class ActualizarCita(UpdateView):
-    model = Cita
-    fields = ['cliente', 'estilista', 'servicio', 'fecha', 'hora', 'estado']
-    template_name = 'citas/actualizarCita.html'
-    success_url = reverse_lazy('listadoCitas')
-
-# Crear producto 
-def crearEstilista(request):
-    Estilista.objects.create(nombre="Jazmín Rosalba", especialidades = 'Corte de Pelo, Decoloración y Tintura')
-    return render(request, 'estilistaCreado.html')
-
-
 # Listado Servicios
 def Servicios(request):
     servicio = Servicio.objects.all()
     return render(request, 'servicios.html', {'servicio': servicio})
 
+# Listado Estilistas
+def ListadoEstilistas(request):
+    estilistas = Estilista.objects.all()
+    return render(request, 'estilistas.html', {'estilistas':estilistas})
+
 # Registro Usuario
-def UsuarioRegistro(request):
-    formulario = forms.usuarioFormulario()
-    data = {
-        'formulario': formulario
-    }
-    return render(request, 'usuarioFormulario.html', data)
+def usuarioRegistro(request):
+    if request.method == "POST":
+        formulario_registro = usuarioFormulario(request.POST)
+        if formulario_registro.is_valid():
+            formulario_registro.save()
+            return redirect('listadoCitas')
+        else:
+            formulario_registro = usuarioFormulario(request.POST)
+            return render(request, 'usuarioRegistro', {'formulario_registro':usuarioFormulario})
 
 # Reserva Hora
-def ReservaHora(request):
-    formulario_reserva = forms.usuarioFormulario()
-    data = {
-        ''
-    } 
+def reservaHora(request):
     return render(request, 'reservaHora.html')

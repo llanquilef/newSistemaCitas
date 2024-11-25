@@ -2,74 +2,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Fints Barber Shop</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería Ponte Peluche</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-  
-      <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'imgs/icono.jpg' %}" alt=""></a>
+    <!--Contenedor Logo-->
+    <div class="containerLogo">
+        <div class="boxLogoImagen">
+            <a href="{% url 'index' %}"><img src="{% static 'imgs/barber1.png' %}" alt=""></a>
+        </div>
+        <!--Contenedor Nav-->
+        <div class="container">
+            <div class="boxNav"><a href="{% url 'index' %}">Inicio</a></div>
+            <div class="boxNav"><a href="{% url 'listadoCitas' %}">Reservas</a></div>
+            <div class="boxNav"><a href="{% url 'listadoEstilistas' %}">Estilistas</a></div>
+            <div class="boxNav"><a href="{% url 'servicios' %}">Servicios</a></div>
+            <div class="boxNav">
+              <a href="{% url 'reservaHora' %}">Reserva tu hora</a>
+              <a href="{% url 'reservaHora' %}"><img src="{% static 'imgs/reserva.jpg' %}" alt=""></a>
+              </div>
+            </div>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav" id="ulNav">
-        <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'listadoCitas' %}">Citas</a></li>
-        <li><a href="{% url 'servicios' %}">Servicios</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {% load static %}
-        <li><a href="{% url 'reservaHora' %}">Reserva Aquí Tu Hora</a></li>
-      </ul>
-    </div> 
-  </div>
-</nav>
-<h1>Listado de Citas</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Cliente</th>
-            <th>Estilista</th>
-            <th>Servicio</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Estado</th>
-        </tr>
-    </thead>
-    <tbody>
+    <!--Contenedor Listado Citas-->
+    <div class="containerListadoCitas">
+      <div class="boxTituloListadoCitas"><h1>Listado de Citas</h1></div>
+      <div class="boxContenedorTablaCitas">
+        <div class="boxCitasFilas">Cliente</div>
+        <div class="boxCitasFilas">Estilista</div>
+        <div class="boxCitasFilas">Servicio</div>
+        <div class="boxCitasFilas">Fecha</div>
+        <div class="boxCitasFilas">Hora</div>
+        <div class="boxCitasFilas">Estado</div>
         {% for c in citas %}
-        <tr>
-            <br>
-            <td>{{ c.cliente }}</td>
-            <td>{{ c.estilista }}</td>
-            <td>{{ c.servicio }}</td>
-            <td>{{ c.fecha }}</td>
-            <td>{{ c.hora }}</td>
-            <td>{{ c.estado }}</td>
-            <td>
-                <button>Editar</button>
-                <button>Eliminar</button>
-            </td>
-        </tr>
+        <div class="data">{{ c.cliente }}</div>
+        <div class="data">{{ c.estilista }}</div>
+        <div class="data">{{ c.servicio }}</div>
+        <div class="data">{{ c.fecha }}</div>
+        <div class="data">{{ c.hora }}</div>
+        <div class="data">{{ c.estado }}</div>
         {% endfor %}
-    </tbody>
-</table>
-<footer class="container-fluid text-center">
-  <p>Fints Barber Shop ©2024</p>
-</footer>
-
+      </div>
+    </div>
+    <!--Contenedor Footer-->
+    <div class="containerFooter">
+        <!--Título Footer-->
+        <div class="containerTituloFooter">
+            <div class="boxTituloFooter">
+                <strong>Barbería Ponte Peluche</strong>
+            </div>
+        </div>
+        <div class="containerInformacionContacto">
+            <div class="boxContactoTitulo"><strong>Información de Contacto</strong></div>
+            <div class="boxContacto"><strong>Reservas</strong></div>
+            <div class="boxContacto"></div>
+            <div class="boxContacto"></div>
+        </div>
+    </div>
 </body>
 </html>
