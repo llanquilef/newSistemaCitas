@@ -202,3 +202,12 @@ body{
   gap: 15px; 
   margin-top: 20px;
 }
+.contenedorFormReserva{
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.boxTituloFormReserva{
+  font-size: large;
+  text-decoration: none;
+  color: black;
+}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Cita, Servicio, Estilista
-from .forms import reservaHora, usuarioFormulario
+from .forms import FormularioReservaHora
 
 # Index
 def Index(request):
@@ -21,17 +21,16 @@ def ListadoEstilistas(request):
     estilistas = Estilista.objects.all()
     return render(request, 'estilistas.html', {'estilistas':estilistas})
 
-# Registro Usuario
-def usuarioRegistro(request):
-    if request.method == "POST":
-        formulario_registro = usuarioFormulario(request.POST)
-        if formulario_registro.is_valid():
-            formulario_registro.save()
-            return redirect('listadoCitas')
-        else:
-            formulario_registro = usuarioFormulario(request.POST)
-            return render(request, 'usuarioRegistro', {'formulario_registro':usuarioFormulario})
 
 # Reserva Hora
 def reservaHora(request):
-    return render(request, 'reservaHora.html')
+    if request.method == "POST":
+        form = FormularioReservaHora(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            form = FormularioReservaHora()
+            
+            return render(request, 'reservaHora.html', {'form': form})
+    

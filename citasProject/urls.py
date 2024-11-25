@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from citasApp.views import Index, usuarioRegistro, listadoCita, reservaHora, Servicios, ListadoEstilistas
+from citasApp.views import Index, listadoCita, reservaHora, Servicios, ListadoEstilistas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,4 @@ urlpatterns = [
     path('/listadoEstilistas', ListadoEstilistas, name='listadoEstilistas'),
     path('reservaHora/', reservaHora, name='reservaHora'),
     path('servicios/', Servicios, name='servicios'),
-    path('usuarioRegistro/', usuarioRegistro, name='usuarioRegistro'),
 ]

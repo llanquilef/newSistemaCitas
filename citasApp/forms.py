@@ -1,12 +1,8 @@
 from django import forms
-from .models import Cita, Usuario
+from .models import Cita
 
-# Formulario Usuario
-class usuarioFormulario(forms.ModelForm):
-    model = Usuario
-    fields = ['nombre','email','contraseña']
 
 # Formulario Reserva Hora
-class reservaHora(forms.ModelForm):
-    model = Cita, Usuario
+class FormularioReservaHora(forms.ModelForm):
+    model = Cita
     fields = ['estilista', 'servicio', 'fecha', 'hora']

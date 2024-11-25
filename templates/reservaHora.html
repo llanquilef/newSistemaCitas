@@ -28,7 +28,18 @@
             </div>
         </div>
     </div>
-    
+    <div class="contenedorFormReserva">
+        <div class="boxTituloFormReserva"><h1>Reserva tu hora</h1></div>
+        <div class="boxFormReserva">
+            <form method="post">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                <button type="submit">Reservar</button>
+            </form>
+        </div>
+    </div>
     <!--Contenedor Footer-->
     <div class="containerFooter">
         <!--Título Footer-->
