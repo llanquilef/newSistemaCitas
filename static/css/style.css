@@ -21,6 +21,7 @@ body{
   margin-left: 40px;
   margin-top: 20px;
 }
+
 .container{
   padding: 10px;
   display: flex;
@@ -46,6 +47,30 @@ body{
 }
 .boxNav a:hover{
   color: blanchedalmond;
+}
+.boxNavInicioSesion{
+  display: flex; 
+  align-items: center;
+  gap: 10px;
+  border: 15px solid white;
+  font-size: 20px;
+  text-align: center;
+  margin: 30px;
+  width: 200px;
+}
+.boxNavInicioSesion a{
+  color: black;
+  text-decoration: none;
+}
+.boxNavInicioSesion a:hover{
+  color: blanchedalmond;
+}
+.containerFormularioRegistro{
+  margin-left: 30px;
+  margin-top: 50px;
+}
+.boxFormRegistro{
+  margin-top: 30px;
 }
 .containerCarrusel {
   position: relative;
@@ -167,6 +192,7 @@ body{
   font-weight: 600;
   color: rgb(241, 241, 241);
 }
+
 .containerInformacionContacto {
   width: 25%;
   display: flex; 
@@ -190,24 +216,39 @@ body{
 }
 .containerListadoEstilistas{
   margin-top: 50px;
-  margin-left: 20px;
+  margin-left: 50px;
   font-family: 'Playfair Display', serif;
 }
 .boxTituloListadoEstilistas{
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 .boxContenedorTablaEstilistas{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px; 
-  margin-top: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px; 
+  padding-top: 15px;
 }
 .contenedorFormReserva{
-  margin-left: 20px;
+  margin-left: 50px;
   margin-top: 50px;
 }
 .boxTituloFormReserva{
   font-size: large;
   text-decoration: none;
   color: black;
+}
+.boxFormReserva{
+  margin-top: 30px;
+  flex-flow: row;
+}
+.boxBotonFormReserva{
+  margin-top: 20px;
+}
+.boxIMGEstilista{
+  color: rgb(255, 11, 11);
+  width: 64px;
+  height: 64px;
+  margin-left: 1200px;
+  margin-top: 20px;
 }

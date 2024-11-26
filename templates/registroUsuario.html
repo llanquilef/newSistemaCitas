@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Radulín</title>
+    <title>Barbería Golovkin</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'imgs/barber1.png' %}">
 </head>
 <body>
     <!--Contenedor Logo-->
@@ -18,27 +19,23 @@
         <!--Contenedor Nav-->
         <div class="container">
             <div class="boxNav"><a href="{% url 'index' %}">Inicio</a></div>
-            <div class="boxNav"><a href="{% url 'listadoCitas' %}">Reservas</a></div>
-            <div class="boxNav"><a href="#">Estilistas</a></div>
+            <div class="boxNav"><a href="{% url 'listadoCitas' %}">Citas</a></div>
+            <div class="boxNav"><a href="{% url 'listadoEstilistas' %}">Estilistas</a></div>
             <div class="boxNav"><a href="{% url 'servicios' %}">Servicios</a></div>
             <div class="boxNav">
               <a href="{% url 'reservaHora' %}">Reserva tu hora</a>
               <a href="{% url 'reservaHora' %}"><img src="{% static 'imgs/reserva.jpg' %}" alt=""></a>
               </div>
-            <div class="boxNavInicioSesion"><a href="{% url 'registro' %}">Regístrate Aquí</a></div>
+            <div class="boxNavInicioSesion"><a href="">Regístrate Aquí</a></div>
             </div>
         </div>
     </div>
-    <!--Contenedor Formulario Reserva-->
-    <div class="contenedorFormReserva">
-        <div class="boxTituloFormReserva"><h1>Reserva tu hora</h1></div>
-        <div class="boxFormReserva">
-            <form method="post">
-
-                {% csrf_token %}
-                {{ form.as_p }}
-                <div class="boxBotonFormReserva"><button type="submit">Reservar</button></div>
-            </form>
+    <div class="containerFormularioRegistro">
+        <div class="boxTituloFormularioRegistro"><h1>Regístrate y obtén un 15% de Dscto en tu primera cita</h1></div>
+        <div class="boxFormRegistro">
+            
+            {% csrf_token %}
+            {{ formulario_registro.as_p }}
         </div>
     </div>
     <!--Contenedor Footer-->
@@ -46,9 +43,10 @@
         <!--Título Footer-->
         <div class="containerTituloFooter">
             <div class="boxTituloFooter">
-                <strong>Barbería</strong>
+                <strong>Barbería Golovkin</strong>
             </div>
         </div>
+        <!--Contenedor Información Contacto-->
         <div class="containerInformacionContacto">
             <div class="boxContactoTitulo"><strong>Información de Contacto</strong></div>
             <div class="boxContactoReserva"><a href="{% url 'reservaHora' %}">Reservas</a></div>

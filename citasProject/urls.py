@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from citasApp.views import Index, listadoCita, reservaHora, Servicios, ListadoEstilistas
+from citasApp.views import Index, listadoCita, reservaHora, Servicios, ListadoEstilistas, usuarioRegistro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', Index, name='index'),
-    path('/listadoCitas', listadoCita, name='listadoCitas'),
-    path('/listadoEstilistas', ListadoEstilistas, name='listadoEstilistas'),
+    path('listadoCitas/', listadoCita, name='listadoCitas'),
+    path('listadoEstilistas/', ListadoEstilistas, name='listadoEstilistas'),
     path('reservaHora/', reservaHora, name='reservaHora'),
     path('servicios/', Servicios, name='servicios'),
+    path('registro/', usuarioRegistro, name='registro'),
 ]

@@ -9,7 +9,7 @@ class Usuario(models.Model):
     rol = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nombre
+        return f'{self.nombre}, {self.email}, {self.rol}'
 
     
 class Administrador(Usuario):
@@ -24,7 +24,7 @@ class Cliente(Usuario):
     telefono = models.CharField(max_length=15)
 
     def __str__(self):
-        return f"{self.nombre}"
+        return f"{self.nombre}, {self.email}"
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=50)
