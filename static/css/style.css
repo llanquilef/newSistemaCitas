@@ -139,7 +139,7 @@ body{
 .boxContenedorTablaCitas{
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px; 
+  gap: 35px; 
   margin-top: 20px;
 }
 

@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Cita, Servicio, Estilista, Cliente
 from .forms import FormularioReservaHora, FormularioUsuarioRegistro
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from .serializers import UserSerializer
+from django.contrib.auth.models import User
+
 
 # Index
 def Index(request):
@@ -21,8 +27,6 @@ def ListadoEstilistas(request):
     estilistas = Estilista.objects.all()
     return render(request, 'estilistas.html', {'estilistas':estilistas})
 
-
-# Reserva Hora
 # Reserva Hora
 def reservaHora(request):
     if request.method == "POST":
@@ -63,3 +67,20 @@ def usuarioRegistro(request):
         formulario_registro = FormularioUsuarioRegistro()
     
     return render(request, 'registroUsuario.html', {'formulario_registro':formulario_registro})
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny]) 
+def Registro(request):
+
+    serializer = UserSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+        user = User.objects.get(username=serializer.data['username'])
+        user.set_password(serializer.data)
+        user.save()
+        
+    print(request.data)
+
+    return Response({}) 

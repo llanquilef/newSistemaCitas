@@ -16,3 +16,8 @@ class FormularioUsuarioRegistro(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ['nombre', 'email', 'contraseña', 'rol']
+
+class FormularioLogIn(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['email', 'contraseña']

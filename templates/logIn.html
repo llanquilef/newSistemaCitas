@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Radulín</title>
+    <title>Barbería Golovkin</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'imgs/barber1.png' %}">
 </head>
 <body>
     <!--Contenedor Logo-->
@@ -15,31 +16,24 @@
         <div class="boxLogoImagen">
             <a href="{% url 'index' %}"><img src="{% static 'imgs/barber1.png' %}" alt=""></a>
         </div>
-                <!--Contenedor Nav-->
-                <div class="container">
-                    <div class="boxNav"><a href="{% url 'index' %}">Inicio</a></div>
-                    <div class="boxNav"><a href="{% url 'listadoCitas' %}">Reservas</a></div>
-                    <div class="boxNav"><a href="{% url 'listadoEstilistas' %}">Estilistas</a></div>
-                    <div class="boxNav"><a href="{% url 'servicios' %}">Servicios</a></div>
-                    <div class="boxNav">
-                      <a href="{% url 'reservaHora' %}">Reserva tu hora</a>
-                      <a href="{% url 'reservaHora' %}"><img src="{% static 'imgs/reserva.jpg' %}" alt=""></a>
-                      </div>
-                    </div>
-                </div>
+        <!--Contenedor Nav-->
+        <div class="container">
+            <div class="boxNav"><a href="{% url 'index' %}">Inicio</a></div>
+            <div class="boxNav"><a href="{% url 'listadoCitas' %}">Citas</a></div>
+            <div class="boxNav"><a href="{% url 'listadoEstilistas' %}">Estilistas</a></div>
+            <div class="boxNav"><a href="{% url 'servicios' %}">Servicios</a></div>
+            <div class="boxNav">
+              <a href="{% url 'reservaHora' %}">Reserva tu hora</a>
+              <a href="{% url 'reservaHora' %}"><img src="{% static 'imgs/reserva.jpg' %}" alt=""></a>
+              </div>
+            <div class="boxNavInicioSesion"><a href="{% url 'registro' %}">Regístrate Aquí</a></div>
             </div>
-    <!--Listado Servicios-->
-    <div class="containerListadoServicios">
-        <div class="boxListadoServicioTitulo"><strong>Servicios</strong></div>
-        <div class="boxListadoServicio">
-            <ul class="noPuntos">
-                {% for s in servicio %}
-                    <li>{{ s.nombre }} - ${{s.precio}}</li>
-                {% empty %}
-                    <li>No hay servicios disponibles.</li>
-                {% endfor %}
-            </ul>            
         </div>
+    </div>
+    <!--Contenedor Fomrulario Log In-->
+    <div class="contenedorFormularioLogIn">
+        <div class="boxLogIn">Nombre: </div>
+        <div class="boxLogIn">Contraseña: </div>
     </div>
     <!--Contenedor Footer-->
     <div class="containerFooter">
